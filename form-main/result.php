@@ -90,7 +90,7 @@
     </div>
     <div>
         <h6>Physics</h6> <p> <?php
-             echo $name;
+             echo $Physics;
              ?></p>
     </div>
     <div>
