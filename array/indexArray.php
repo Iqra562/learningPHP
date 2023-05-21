@@ -8,9 +8,22 @@ $employeData = [
     [5,"Usman","Owner",5550000]
 ];
 // echo $employeData[1][1] . "<br>";
+// echo print_r($employeData)
+foreach($employeData as $value){
+  foreach($value as $innervalue){
+ echo $innervalue ;
+  }
+  echo "<br>";
+}
+objectsKey($employeData)
 ?>
 <table border="1px" style="width:100%">
-
+<tr>
+    <th>Employee ID</th>
+    <th>Employee Name</th>
+    <th>Employee Designation</th>
+    <th>Employee Salary</th>
+</tr>
     <?php
 
 foreach($employeData as $value1){
@@ -21,7 +34,7 @@ foreach($employeData as $value1){
         ?>
       <td><?php echo  $value2;?></td>   
      <?php
-    } 
+    }  
     ?>
     </tr>
     <?php
