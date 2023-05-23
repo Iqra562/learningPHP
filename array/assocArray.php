@@ -8,6 +8,9 @@ $employeData = [
    '5' =>  ['name'=>"Usman",'designatio'=>"Owner",'salary'=>5550000]
 ];
 echo '<pre>';
+echo print_r(array_count_values($employeData['1']));
+echo '</pre>';
+echo '<pre>';
 echo print_r($employeData);
 echo '</pre>';
 foreach($employeData as $key => $value1){ 

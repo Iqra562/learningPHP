@@ -7,6 +7,9 @@ $employeData = [
     [4,"Halima","Incharge",200000],
     [5,"Usman","Owner",5550000]
 ];
+echo '<pre>';
+echo print_r(array_count_values($employeData[0]));
+echo '</pre>';
 // echo $employeData[1][1] . "<br>";
 // echo print_r($employeData)
 foreach($employeData as $value){
@@ -15,7 +18,7 @@ foreach($employeData as $value){
   }
   echo "<br>";
 }
-objectsKey($employeData)
+
 ?>
 <table border="1px" style="width:100%">
 <tr>
