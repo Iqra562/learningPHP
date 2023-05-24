@@ -153,7 +153,7 @@ echo print_r($intersect3);
 echo print_r($intersect4).'<br>';
 echo print_r($intersect5);
 echo '</pre>';
-// user defined assoc function //
+// user defined assoc function & we can use string methods also//
 function compare($a,$b){
     if($a===$b){
 return 0;
@@ -164,5 +164,67 @@ return 0;
 $userdefined=array_intersect_uassoc($intersect1,$intersect2,'compare');
 echo '<pre>';
 echo print_r($userdefined);
+echo '</pre>';
+?>
+<h3>Array Diff & Udiff Functions</h3>
+<?php
+$diff1 =['a'=>'ali','b'=>'Fatima','c'=>'zainab'];
+$diff2 = ['a'=>'zainab','b'=>'Fatima','d'=>'Asia'];
+$newdiff1 = array_diff($diff1,$diff2);
+$newdiff2 = array_diff_key($diff1,$diff2);
+$newdiff3 = array_diff_assoc($diff1,$diff2);
+echo '<pre>';
+echo print_r($newdiff1);
+echo print_r($newdiff2);
+echo print_r($newdiff3);
+echo '</pre>';
+
+?>
+<h3>Array Values & Array Unique</h3>
+<?php
+$values = [1=>'adnan',2=>'Zara',3=>'Amir',4=>'Zara',5=>'ali',6=>'Mahnoor',7=>'adnan'];
+$newValues=array_values($values);
+$uniqueValues=array_unique($values);
+echo '<pre>';
+echo print_r($newValues);
+echo print_r($uniqueValues);
+echo '</pre>';
+
+
+?>
+<h3>Array Column &  Array Chunk Funtions</h3>
+<?php
+$columnArray=[
+    [
+        'id'=>3921,
+        'name'=>'Ali',
+        'age'=>22,
+
+    ],
+    [
+        'id'=>3922,
+        'name'=>'Hasan',
+        'age'=>23,
+
+    ],
+    [
+        'id'=>3923,
+        'name'=>'Aiza',
+        'age'=>21,
+
+    ],
+
+];
+$getValues = array_column($columnArray,'name','id');
+
+echo '<pre>';
+echo print_r($getValues);
+echo '</pre>';
+$chunkArray=['Vivo','Huawei','Samsung','Iphone','Techno','Finix','hp','Del','Google'];
+$newChunkArray=array_chunk($chunkArray,2);
+$newChunkArray1=array_chunk($columnArray,3,true );
+echo '<pre>';
+echo print_r($newChunkArray);
+echo print_r($newChunkArray1);
 echo '</pre>';
 ?>
