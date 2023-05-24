@@ -167,3 +167,71 @@ echo '<pre>';
 print_r ($newReverse);
 echo '</pre>';
 ?>
+<h3>Array Traversing Function</h3>
+<?php
+$traversingArray = ['Parrot','Pegion','Turtoise','Cow','Lion','Cat'];
+echo "<b>Current:</b>" . current($traversingArray) . "<br>";
+echo "<b>key:</b>" . key($traversingArray) . "<br>";
+echo "<b>Position:</b>" . pos($traversingArray) . "<br>";
+next($traversingArray);
+echo "<b>Current:</b>" . current($traversingArray) . "<br>";
+echo "<b>key:</b>" . key($traversingArray) . "<br>";
+next($traversingArray);
+echo "<b>Current:</b>" . current($traversingArray) . "<br>";
+echo "<b>key:</b>" . key($traversingArray) . "<br>";
+ prev($traversingArray);
+echo "<b>Current:</b>" . current($traversingArray) . "<br>";
+ end($traversingArray);
+echo "<b>Current:</b>" . current($traversingArray) . "<br>";
+echo "<b>key:</b>" . key($traversingArray) . "<br>";
+
+
+
+
+?>
+<h3>Array List Functions</h3>
+<?php
+$listArray=['Parrot','Pegion','Turtoise','Cow','Lion','Cat'];
+list($a,$b,,$d) = $listArray;
+echo "Value of a: $a <br>";
+echo "Value of b: $b <br>";
+echo "Value of d: $d <br>";
+$listArrayAssoc=[0=>'Parrot',1=>'Pegion',2=>'Turtoise'];
+list($c[0],$c[1],$c[2])=$listArrayAssoc;
+echo "Value is : $c[0] <br>";
+echo "Value is : $c[1] <br>";
+echo "Value is : $c[2] <br>";
+
+
+?>
+<h3>Array Extract & Compact Function</h3>
+<?php
+$extractArray=['a'=>'Parrot','b'=>'Pegion','c'=>'Turtoise'];
+// it makes variable of key //
+extract($extractArray);
+echo "Value a : $a ";
+echo "Value b : $b ";
+$compactArray1= 'Parrot';
+$compactArray2='Pegion';
+$compactArray3='Turtoise';
+$age=22;
+$id=321;
+$extra=['age','id'];
+$newCompactArray=compact('compactArray1','compactArray2','compactArray3',$extra);
+echo '<pre>';
+print_r ($newCompactArray);
+echo '</pre>';
+?>
+<h3>Array Range Function</h3>
+<?php
+$RangeNum=range(1,100,10);
+$RangeStr=range('h','a');
+echo '<pre>';
+print_r ($RangeNum);
+print_r ($RangeStr);
+echo '</pre>';
+foreach(range('a','h',2) as $letter){
+    echo $letter . "<br>";
+
+}
+?>
