@@ -26,7 +26,7 @@ include("connections.php")
                     echo $value['employee_Name']?></td>
                     <td><?php
                     echo $value['employee_Salary']?></td>
-                    <td><button class="btn btn-dark " style="color:'white'"><a href="update.php?id<?php echo $value['employee_ID']
+                    <td><button class="btn btn-dark " style="color:'white'"><a href="update.php?id=<?php echo $value['employee_ID']
                     ?>">Update</a> </button></td>
                 </tr>
             </table>
