@@ -21,17 +21,12 @@
     $inp = $_POST['text'];
     $splitting = explode(" ", $inp);
     $countRepeatedWords = array_count_values($splitting);
-    $getTitle =  array_slice($countRepeatedWords,rand(1,5),rand(5,10));
-//    $main = array_count_values($e);
-// print_r($e);
-
+    $getTitle =  array_slice($countRepeatedWords, rand(1,5),rand(5,10));
+    print_r ($getTitle);
 foreach($getTitle as $words => $numbers){
     if(strlen($words) > 4   ){
         echo  $words . " " ;
-        // $ss =  explode(" ", $key);
-        // echo  $key . "+" ;
-// print_r(array_merge( $ss));      
-// $c = ["$key"];
+        
 
     };
 };
