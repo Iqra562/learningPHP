@@ -7,25 +7,75 @@
     <title>Document</title>
     <link rel="stylesheet" href="bootstrap.min.css">
 </head>
+<style>
+     body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            margin-top: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+ font-size: 20px;
+        }
+
+        .input-group-text {
+            color: #fff;
+            border-color: #007bff;
+            
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+
+        .title {
+            font-size: 25px;
+            margin-top: 20px;
+        }
+
+        .title span {
+            font-weight: light;
+            color: black;
+            font-size:20px;
+        }
+</style>
 <body>
     <div class="container">
-    <form action="" method="post">
+    <form action="" method="post"  class="form-group" >
+        <label for="" class="form-label">Enter notes:</label>
     <div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Recipient's username" name="text">
-  <button class="input-group-text " id="basic-addon2" type="submit" name="summarize" >@example.com</button>
+  <textarea type="text" class="form-control" name="text" rows="5" >  </textarea >
+  <button class="input-group-text btn-primary" type="submit" name="summarize" >Create Title</button>
 </div>
     </form>
     </div>
+    <div class="container">
     <?php
    if(isset($_POST["summarize"])){
-    $inp = $_POST['text'];
-    $splitting = explode(" ", $inp);
-    $countRepeatedWords = array_count_values($splitting);
-    $getTitle =  array_slice($countRepeatedWords, rand(1,5),rand(5,10));
-    print_r ($getTitle);
+       $inp = $_POST['text'];
+       $splitting = explode(" ", $inp);
+       $countRepeatedWords = array_count_values($splitting);
+       $getTitle =  array_slice($countRepeatedWords, rand(1,5),rand(5,10));
+       // print_r ($getTitle);
+       ?>
+    <span class="title">Title :
+       <?php
 foreach($getTitle as $words => $numbers){
+
     if(strlen($words) > 4   ){
-        echo  $words . " " ;
+     $words_trim= trim(ucwords($words),",.");
+        ?>
+ <span><?php echo $words_trim
+ ; ?></span>
+        
+    <?php
         
 
     };
@@ -34,6 +84,8 @@ foreach($getTitle as $words => $numbers){
 };
 
     ?>
+    </span>
+    </div>
  
 </body>
 </html>
