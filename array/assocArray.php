@@ -7,9 +7,7 @@ $employeData = [
    '4' =>  ['name'=>"Halima",'designatio'=>"Incharge",'salary'=>200000],
    '5' =>  ['name'=>"Usman",'designatio'=>"Owner",'salary'=>5550000]
 ];
-echo '<pre>';
-echo print_r(array_count_values($employeData['1']));
-echo '</pre>';
+
 echo '<pre>';
 echo print_r($employeData);
 echo '</pre>';
@@ -49,3 +47,16 @@ foreach($employeData as $key => $value1){
 }
 ?>
 </table>
+<?php
+$employeDatas = ['name'=>"Fatima",'designatio'=>"Manager",'salary'=>100000];
+print_r ($employeDatas);
+foreach($employeDatas as$keys => $vvv){
+    echo $keys . $vvv . "<br>";
+}
+foreach($employeDatas as $vvvs){
+    echo $vvvs . "<br>";
+}
+ 
+
+
+?>

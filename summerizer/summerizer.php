@@ -65,14 +65,14 @@
        $countRepeatedWords = array_count_values($splitting);
        $getTitle =  array_slice($countRepeatedWords, rand(1,5),rand(5,10));
 
-   
+   print_r ($getTitle);
        ?>
     <span class="title">Title :
        <?php
 foreach($getTitle as $words => $numbers){
 
-    if(strlen($words) > 4   ){
-     $words_trim= trim(ucwords($words),",./:'");
+    if(strlen($getTitle) > 4   ){
+     $words_trim= trim(ucwords($getTitle),",./:'");
        echo $words_trim . " "; 
         
     
