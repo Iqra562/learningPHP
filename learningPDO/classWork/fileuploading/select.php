@@ -14,6 +14,7 @@ include("connections.php")
     <div class="container">
         <div class="row">
             <?php
+            if(isset($_SESSION['id'])){
             $query  = $pdo->query("select * from products");
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
             foreach($result as $data){
@@ -29,8 +30,16 @@ include("connections.php")
             </div>
                 <?php
             } 
+        
                 ?>
         </div>
+        <button class="btn btn-primary"><a class="text-white" href="logout.php">logout</a></button>
+        <?php
+            }
+            else{
+                header("location:login.php");
+            }
+        ?> 
     </div>
 </body>
 </html>
