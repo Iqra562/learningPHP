@@ -17,7 +17,8 @@ include("connection.php");
   
   $sql = "select * from std join class on std.class = class.class_id";
   $result = mysqli_query($connection,$sql) or die("query unsuccessful");
-  $fetch= mysqli_fetch_assoc($result);
+  $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+//   $fetch= mysqli_fetch_assoc($result);
   if(mysqli_num_rows($result)>0){
   ?>
 
@@ -33,17 +34,19 @@ include("connection.php");
     </thead>
 <tbody>
     <?php
-    foreach($fetch as $row){
+    foreach($rows  as $row ){
     ?>
     <tr>
         <td><?php echo $row['id']?></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><?php echo $row['std_name']?></td>
+        <td><?php echo $row['city']?></td>
+        <td><?php echo $row['class']?></td>
+        <td><?php echo $row['phone_num']?></td>
+        <td><?php echo $row['class_name']?></td>
+     
         <td>
-            <button></button>
-            <button> </button>
+            <button> <a href="update.php?id=<?php echo $row['id']?>">update</a></button>
+            <button><a href="">Delete</a> </button>
         </td>
     </tr>
     <?php
@@ -56,5 +59,15 @@ include("connection.php");
   }
   ?>
     </div>
+    <?php
+    if(isset($_GET['id'])){
+        $get_id = $_GET['id'];
+     $sql = "DELETE FROM std where id = {$get_id}";
+     $result = mysqli_query($connection,$sql) or die("connection failed");
+     header("Location: http://localhost/learningPHP/mysqliProcedural/update2.php");
+    mysqli_close($connection);
+    
+     };
+    ?>
 </body>
 </html>
