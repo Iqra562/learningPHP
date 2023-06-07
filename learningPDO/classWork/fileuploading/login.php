@@ -21,17 +21,13 @@ include("query.php");
         <input type="text" name="name" id=""  class="form-control">
         
       </div>
-      <!-- <div class="form-group">
-        <label for="">Email</label>
-        <input type="text" name="email" id="" class="form-control">
-        
-      </div> -->
+     
       <div class="form-group">
         <label for="">Password</label>
         <input type="text" name="password" id=""  class="form-control">
         
       </div>
-      <input type="submit" name="login" id="" value = "Add" class="btn btn-primary">
+      <input type="submit" name="login" id="" value = "login" class="btn btn-primary">
         </form>
     </div>
 </body>

@@ -2,6 +2,31 @@
 include("connections.php");
 
 
+if(isset($_POST['login']))
+{
+    $username = $_POST['name'];
+    $password = $_POST['password'];
+    $query=$pdo->prepare("select * from user where name= :name && password= :pass");
+    $query->bindParam("name", $username);
+    $query->bindParam("pass",$password);
+    $query->execute();
+    $result= $query->fetch(PDO::FETCH_ASSOC);
+    if($result){
+        $_SESSION['id'] = $result['id'];
+        echo "<script>alert('valid data')</script>";
+        header("location:select.php");
+        
+
+    }
+    else{
+  
+        echo "<script>alert('invalid data')</script>";
+
+
+
+    }
+}
+
 
 if(isset($_POST['addPro'])){
 $p_name = $_POST['p_name'];
