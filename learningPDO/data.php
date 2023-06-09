@@ -1,5 +1,5 @@
 <?php 
-include("connections.php")
+include("connections.php");
 
 ?>
 <!DOCTYPE html>
@@ -18,7 +18,7 @@ include("connections.php")
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
         foreach ($result as $value) {
             ?>
-            <table class="table table-striped" style="width:'100%'">
+            <table class="table table-striped" >
                 <tr>
                     <td><?php
                     echo $value['employee_ID']?></td>
