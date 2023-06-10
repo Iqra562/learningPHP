@@ -209,7 +209,7 @@ include("./php/connection.php");
                             <td id="c_name"><?php echo $row['category_name'] ?></td>
                             <td><img id="c_image" src="images/<?php echo $row['category_image'] ?>" width='10%' height='10%' alt=""></td>
                             <td>
-                                <button class="btn btn-secondary edit-btn " data-bs-toggle="modal" data-bs-target="#edit-modal">
+                                <button class="btn btn-secondary edit-btn " data-bs-toggle="modal" data-bs-target="#edit-modal<?php  $row['category_id']  ?>">
                                     <i class="fa fa-edit"></i>
                                 </button>
                                 <button class="btn btn-secondary" name="delete" >
@@ -217,18 +217,9 @@ include("./php/connection.php");
                                 </button>
                             </td>
                         </tr>
-                        <?php
-                        }
-                        ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-
+                        
 <!-- The Modal -->
-<div class="modal" id="edit-modal">
+<div class="modal" id="edit-modal<?php $row['category_id'] ?>">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <!-- Modal body -->
@@ -236,15 +227,15 @@ include("./php/connection.php");
                 <form method="post" action="" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="">ID</label>
-                        <input type="text" id="modal-category-id" name="model-id" class="form-control" readonly>
+                        <input value="<?php echo $row['category_id'] ?>" type="text" id="modal-category-id" name="model-id" class="form-control" readonly>
                     </div>
                     <div class="form-group">
                         <label for="">Name</label>
-                        <input id="modal-category-name" name="model-name" class="form-control" type="text">
+                        <input value="<?php echo $row['category_name'] ?>" id="modal-category-name" name="model-name" class="form-control" type="text">
                     </div>
                     <div class="form-group">
                         <label for="">Image</label>
-                        <div><img id="modal-category-image"  src=""  alt="" width="20%"></div>
+                        <div><img id="modal-category-image"  src="images/<?php echo $row['category_image'] ?>"  alt="" width="20%"></div>
                         <input class="form-control" type="file" name="model-image">
                     </div>
                     <button type="submit"  class="btn btn-info text-white" name="update"> Update</button>
@@ -257,22 +248,32 @@ include("./php/connection.php");
         </div>
     </div>
 </div>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <script>
     // JavaScript logic to capture selected row data in modl
-    document.querySelectorAll('.edit-btn').forEach((button) => {
-    button.addEventListener('click', (event) => {
-        const row = button.closest('tr');
-        const categoryId = row.querySelector("#c_id").innerHTML;
-        const categoryName = row.querySelector("#c_name").innerHTML;
-        const categoryImage = row.querySelector("#c_image").src;
+//     document.querySelectorAll('.edit-btn').forEach((button) => {
+//     button.addEventListener('click', (event) => {
+//         const row = button.closest('tr');
+//         const categoryId = row.querySelector("#c_id").innerHTML;
+//         const categoryName = row.querySelector("#c_name").innerHTML;
+//         const categoryImage = row.querySelector("#c_image").src;
 
-        // data of selected row in modal form
-        document.getElementById('modal-category-id').value = categoryId;
-        document.getElementById('modal-category-name').value = categoryName;
-        document.getElementById('modal-category-image').src = categoryImage;
-    });
-});
+//         // data of selected row in modal form
+//         document.getElementById('modal-category-id').value = categoryId;
+//         document.getElementById('modal-category-name').value = categoryName;
+//         document.getElementById('modal-category-image').src = categoryImage;
+//     });
+// });
 
 </script>
 <?php
