@@ -47,8 +47,9 @@ include("./adminPanelPhp/query.php");
         background-color: black;
     }
 
-    table td {
-        /* color: var(--light); */
+    th {
+        color: var(--light);
+        font-size:18px;
     }
 
     .insert:hover {
@@ -91,6 +92,12 @@ include("./adminPanelPhp/query.php");
                     <input class="form-control bg-dark border-0" type="search" placeholder="Search">
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
+                    <div class="nav-item dropdown">
+                    <a href="adminPanelCategory.php" class="nav-link ">
+                         
+                            <span class="d-none d-lg-inline-flex">Category Panel</span>
+                        </a>
+                    </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-envelope me-lg-2"></i>

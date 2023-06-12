@@ -46,8 +46,9 @@ include("./php/query.php");
         background-color: black;
     }
 
-    table td {
-        /* color: var(--light); */
+    th {
+        color: var(--light);
+        font-size:18px;
     }
 
     .insert:hover {
@@ -105,6 +106,7 @@ include("./php/query.php");
                     <a href="products.php" class="nav-item nav-link active"><i
                             class="fa fa-keyboard me-2"></i>Products</a>
                     <a href="adminPanelCategory.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Category Panel</a>
+                    <a href="adminPanelProducts.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Products Panel</a>
                     <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i

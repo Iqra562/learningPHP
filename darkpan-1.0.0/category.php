@@ -50,7 +50,10 @@ include("./php/query.php");
     .insert:hover {
         color: white;
     }
-
+ th{
+    color:var(--light);
+    font-size:20px;
+ }
     .modal-dialog {
         background-color: ;
     }
@@ -101,6 +104,7 @@ include("./php/query.php");
                     <a href="category.php" class="nav-item nav-link active"><i class="fa fa-th me-2"></i>Category</a>
                     <a href="products.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Products</a>
                     <a href="adminPanelCategory.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Category Panel</a>
+                    <a href="adminPanelProducts.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Products Panel</a>
                     <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
@@ -228,7 +232,7 @@ include("./php/query.php");
 
                             </div>
 
-                            <table class="table table-dark table-hover table-striped w-100 mt-2">
+                            <table class="table table-dark table-hover  w-100 mt-2">
                                 <thead>
                                     <tr>
                                         <th scope="col">Category ID</th>
