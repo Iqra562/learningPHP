@@ -222,7 +222,7 @@ include("./adminPanelPhp/query.php");
                                             <?php echo $row['category_name'] ?>
                                         </td>
                                         <td style="width: 30%;"><img id="c_image"
-                                                src="images/<?php echo $row['product_image'] ?>" style="width: 30%;"
+                                                src="cozastoreimages/<?php echo $row['product_image'] ?>" style="width: 30%;"
                                                 alt=""></td>
                                         <td class="">
                                             <button class="btn btn-secondary edit-btn " data-bs-toggle="modal"
@@ -314,9 +314,9 @@ $classes = $resultc->fetchAll(PDO::FETCH_ASSOC);
                                                         <div class="mb-3 row form-group">
                                                             <label for="" class="col-sm-2 col-form-label">Category
                                                                 Image</label>
-                                                            <div class="col-sm-10"><img width="50%"
+                                                            <div class="col-sm-10"><img width="70%"
                                                                     id="modal-category-image"
-                                                                    src="images/<?php echo $row['product_image']  ?>"
+                                                                    src="cozastoreimages/<?php echo $row['product_image']  ;?>"
                                                                     alt="">
                                                             </div>
 

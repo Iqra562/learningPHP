@@ -8,7 +8,9 @@ if(isset($_POST['update'])){
     $p_image_size = $_FILES['model-image']['size'];
     $p_image_tmp_name = $_FILES['model-image']['tmp_name'];
     $p_image_ext = pathinfo($p_image, PATHINFO_EXTENSION);
-    $destination = "images/".$p_image;
+    $destination = "cozastoreimages/".$p_image;
+    $destinationProductCozastore = "/cozastore-master/databaseImage/".$p_image;
+
     if($p_image_size <= 48000000){
     if($p_image_ext === 'jpg' || $p_image_ext === "png" || $p_image_ext === 'jpeg'|| $p_image_ext === "webp"  || $p_image_ext === "" || $p_image === ""){
         if(move_uploaded_file($p_image_tmp_name,$destination)){
@@ -36,7 +38,7 @@ if(isset($_POST['update'])){
                 $query -> bindParam('_id', $c_id);
              
                 $query -> execute();
-                echo "<script>alert('name added succesfully')</script>";
+                echo "<script>alert('your changes are saved !!')</script>";
             
         
         }
@@ -57,7 +59,8 @@ if(isset($_POST['insertCategory'])){
     $p_image_size = $_FILES['categoryImage']['size'];
     $p_image_tmp_name = $_FILES['categoryImage']['tmp_name'];
     $p_image_ext = pathinfo($p_image, PATHINFO_EXTENSION);
-    $destination = "images/".$p_image;
+    $destination = "cozastoreimages/".$p_image;
+    $destinationProductCozastore = "/cozastore-master/databaseImage/".$p_image;
     if($p_image_size <= 48000000){
     if($p_image_ext == 'jpg' || $p_image_ext == "png" || $p_image_ext== 'jpeg' || $p_image_ext== 'webp'){
         if(move_uploaded_file($p_image_tmp_name,$destination)){
@@ -84,6 +87,7 @@ if(isset($_POST['insertCategory'])){
     
 ?>
  <!-- queryies for category pages end -->
+ <!-- <img src="/cozastore-master/databaseImage" alt=""> -->
  <!-- queryies for product pages start -->
  <?php
  if(isset($_POST['update_product'])){
@@ -95,7 +99,8 @@ if(isset($_POST['insertCategory'])){
     $product_image_size = $_FILES['product_image']['size'];
     $product_image_tmp_name = $_FILES['product_image']['tmp_name'];
     $product_image_ext = pathinfo($product_image, PATHINFO_EXTENSION);
-    $destinationProduct = "images/".$product_image;
+    $destinationProduct = "cozastoreimages/".$product_image;
+    $destinationProductCozastore = "/cozastore-master/databaseImage/".$product_image;
     if($product_image_size <= 48000000){
     if($product_image_ext === 'jpg' || $product_image_ext === "png" || $product_image_ext === 'jpeg'|| $product_image_ext === "webp"  || $product_image_ext === "" || $product_image === ""){
         if(move_uploaded_file($product_image_tmp_name,$destinationProduct)){
@@ -126,7 +131,7 @@ if(isset($_POST['insertCategory'])){
                 $query -> bindParam('product_price', $product_price);
             $query -> bindParam('product_category', $product_category);
                 $query -> execute();
-                echo "<script>alert('name added succesfully')</script>";
+                echo "<script>alert('your changes are saved !!')</script>";
             
         
         }
@@ -149,7 +154,8 @@ if(isset($_POST['insertProduct'])){
     $p_image_size = $_FILES['productImage']['size'];
     $p_image_tmp_name = $_FILES['productImage']['tmp_name'];
     $p_image_ext = pathinfo($p_image, PATHINFO_EXTENSION);
-    $destination = "images/".$p_image;
+    $destination = "cozastoreimages/".$p_image;
+    $destinationProductCozastore = "images/".$p_image;
     if($p_image_size <= 48000000){
     if($p_image_ext == 'jpg' || $p_image_ext == "png" || $p_image_ext== 'jpeg' || $p_image_ext== 'webp'){
         if(move_uploaded_file($p_image_tmp_name,$destination)){
@@ -161,10 +167,9 @@ if(isset($_POST['insertProduct'])){
             $query -> execute();
             echo "<script>alert('product added succesfully')</script>";
         }
-    
     }else{
         echo "<script>alert('not valid extension')
-        location.assign('products.php')
+        location.assign('adminPanelProducts.php')
         </script>";
     }
     
