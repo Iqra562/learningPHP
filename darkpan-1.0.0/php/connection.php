@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 $server = "mysql:host=localhost;dbname=project";
 $user = "root";
 $password = "";

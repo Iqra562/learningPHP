@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 14, 2023 at 10:31 PM
+-- Generation Time: Jun 15, 2023 at 09:16 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `admin panel`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `admin_id` int(11) NOT NULL,
+  `admin_name` varchar(200) NOT NULL,
+  `admin_password` int(11) NOT NULL,
+  `admin_email` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`admin_id`, `admin_name`, `admin_password`, `admin_email`) VALUES
+(1, 'iqra', 1234, 'iqra@gmail.com\r\n'),
+(2, 'iqra', 1234, 'iqra@gmail.com\r\n');
 
 -- --------------------------------------------------------
 
@@ -84,6 +105,12 @@ INSERT INTO `products` (`product_id`, `product_name`, `product_price`, `product_
 --
 
 --
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`admin_id`);
+
+--
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
@@ -99,6 +126,12 @@ ALTER TABLE `products`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `category`
