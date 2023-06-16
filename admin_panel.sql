@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2023 at 09:16 AM
+-- Generation Time: Jun 16, 2023 at 09:17 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,7 +40,15 @@ CREATE TABLE `admins` (
 
 INSERT INTO `admins` (`admin_id`, `admin_name`, `admin_password`, `admin_email`) VALUES
 (1, 'iqra', 1234, 'iqra@gmail.com\r\n'),
-(2, 'iqra', 1234, 'iqra@gmail.com\r\n');
+(2, 'iqra', 1234, 'iqra@gmail.com\r\n'),
+(3, 'xyz', 12345, 'xyz@gmail.com'),
+(4, 'sss', 678, 'ww@gmail.com'),
+(5, 'oeuie', 9828, 'ewew@gmail.com'),
+(6, 'xx', 0, 'xx@gmail.com'),
+(7, 'k', 0, ''),
+(8, 'lllapxz', 32421, 'jddzj@gmail.com'),
+(9, 'dlas', 131, 'xamadx@gmail.com'),
+(10, 'opwop', 291, 'qwo@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -62,7 +70,11 @@ INSERT INTO `category` (`category_id`, `category_name`, `category_image`) VALUES
 (1, 'Women', 'categorywomen.jpg'),
 (2, 'Men', 'categorymen.jpg'),
 (3, 'Shoes', 'categoryshoes .jpg'),
-(4, 'Watches', 'categorywatch.jpg');
+(4, 'Watches', 'categorywatch.jpg'),
+(5, 'Laptop', 'laptop.webp'),
+(6, 'Perfumes', 'perfume.jpg'),
+(7, 'Homeappliances', 'homeappliances.jpg'),
+(8, 'Phones & Tablets', 'phone.png');
 
 -- --------------------------------------------------------
 
@@ -98,7 +110,8 @@ INSERT INTO `products` (`product_id`, `product_name`, `product_price`, `product_
 (13, 'T-Shirt with Sleeve', 901, 1, 'product-13.jpg'),
 (14, 'Pretty Little Thing', 254, 1, 'product-14.jpg'),
 (15, 'Mini Silver Mesh Watch', 654, 4, 'product-15.jpg'),
-(16, 'Square Neck Back', 654, 1, 'product-16.jpg');
+(16, 'Square Neck Back', 654, 1, 'product-16.jpg'),
+(25, 'chees', 222, 1, 'code.php.png');
 
 --
 -- Indexes for dumped tables
@@ -131,19 +144,19 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Constraints for dumped tables

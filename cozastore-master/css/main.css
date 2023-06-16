@@ -1998,7 +1998,6 @@ input.num-product::-webkit-inner-spin-button {
   border-bottom: 2px solid #fff;
   overflow: hidden;
   -webkit-transform: scaleX(0);
-  -moz-transform: scaleX(0);
   -ms-transform: scaleX(0);
   -o-transform: scaleX(0);
   transform: scaleX(0);

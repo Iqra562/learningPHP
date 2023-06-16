@@ -1,5 +1,8 @@
 <?php
 include("./adminPanelPhp/query.php");
+if(!isset($_SESSION['admin_id'])){
+    header('location:signup.php');
+}
 ?>
 
 
@@ -169,7 +172,13 @@ th{
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item text-white">My Profile</a>
                             <a href="#" class="dropdown-item text-white">Settings</a>
-                            <a href="#" class="dropdown-item text-white">Log Out</a>
+                            <form method="post" action="signup.php">
+    <button type="submit" class="dropdown-item text-white" name="logout">Log Out</button>
+</form>
+
+
+
+                            
                         </div>
                     </div>
                 </div>

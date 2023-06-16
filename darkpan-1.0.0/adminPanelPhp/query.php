@@ -188,20 +188,19 @@ if(isset($_POST['insertProduct'])){
 <?php
 if(isset($_POST['logIn']))
 {
-    echo "<script>alert('invalid data')</script";
 
     $username = $_POST['adminName'];
     $password = $_POST['adminPassword'];
-    $email = $_POST['adminEmail'];
-    $query=$pdo->prepare("select * from admins where admin_name= :name && admin_password= :password && admin_email = :email");
+    // $email = $_POST['adminEmail'];
+    $query=$pdo->prepare("select * from admins where admin_name= :name && admin_password= :password");
     $query->bindParam("name", $username);
     $query->bindParam("password",$password);
-    $query->bindParam("email",$email);
+    // $query->bindParam("email",$email);
     $query->execute();
     $result= $query->fetch(PDO::FETCH_ASSOC);
     if($result){
         $_SESSION['admin_id'] = $result['admin_id'];
-        echo "<script>alert('valid data')</script>";
+        // echo "<script>alert('valid data')</script>";
         header("location:adminPanelCategory.php");
         
 
@@ -217,3 +216,36 @@ if(isset($_POST['logIn']))
 ?>
 
 <!-- login into admin panel  end -->
+<!-- logout from page  start -->
+<?php
+if(isset($_POST['logout'])){
+    session_start();
+    session_unset();
+    header("location: signup.php");
+}
+?>
+<!-- logout from page  end -->
+<!-- sign in admin  start -->
+<?php
+if (isset($_POST['signIn'])) {
+    $username = $_POST['adminName'];
+    $password = $_POST['adminPassword'];
+    $email = $_POST['adminEmail'];
+
+    $query = $pdo->prepare("INSERT INTO admins (admin_name, admin_password, admin_email) VALUES (:adminName, :adminPassword, :adminEmail)");
+    $query->bindParam(':adminName', $username);
+    $query->bindParam(':adminPassword', $password);
+    $query->bindParam(':adminEmail', $email);
+
+    if ($query->execute()) {
+        $_SESSION['admin_id'] = $pdo->lastInsertId(); // Set the session variable with the newly inserted admin_id
+        header("location: adminPanelCategory.php");
+        exit; // Terminate the script to prevent further execution
+    } else {
+        echo "<script>alert('Failed to create your account')</script>";
+    }
+}
+?>
+
+
+<!-- sign in admin  end -->

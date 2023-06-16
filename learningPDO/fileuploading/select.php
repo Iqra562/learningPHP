@@ -14,16 +14,16 @@ include("connections.php")
     <div class="container">
         <div class="row">
             <?php
-            if(isset($_SESSION['id'])){
+            if(isset($_SESSION['admin_id'])){
             $query  = $pdo->query("select * from products");
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
             foreach($result as $data){
                 ?>
                 <div class="col-md-3">
                     <div class="card" >
-                <img class="card-img-top" src="images/<?php echo $data['p_image']?>" alt="">
+                <img class="card-img-top" src="images/<?php echo $data['product_image']?>" alt="">
                 <div class="card-body">
-                <div class="card-title"><?php echo $data['pro_name']?>
+                <div class="card-title"><?php echo $data['product_name']?>
                 </div>
                 </div>
                 </div>

@@ -56,6 +56,7 @@ include("./adminPanelPhp/query.php");
                             </a>
                             <h3>Sign Up</h3>
                         </div>
+                        <form action="" method="post">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="floatingText" placeholder="jhondoe" name="adminName">
                             <label for="floatingText">Username</label>
@@ -75,8 +76,9 @@ include("./adminPanelPhp/query.php");
                             </div>
                             <a href="">Forgot Password</a>
                         </div>
-                        <button class="btn  py-3 w-100 mb-4" name="logIn"> Sign Up</button>
-                        <p class="text-center mb-0">Already have an Account? <a href="">Sign In</a></p>
+                        <button class="btn btn-primary py-3 w-100 mb-4" name="logIn"> Sign Up</button>
+                        <p class="text-center mb-0">Already have an Account? <a href="signin.php">Sign In</a></p>
+                        </form>
                     </div>
                 </div>
             </div>

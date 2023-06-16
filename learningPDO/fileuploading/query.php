@@ -6,14 +6,14 @@ if(isset($_POST['login']))
 {
     $username = $_POST['name'];
     $password = $_POST['password'];
-    $query=$pdo->prepare("select * from user where name= :name && password= :pass");
+    $query=$pdo->prepare("select * from admins where admin_name= :name && admin_password= :pass");
     $query->bindParam("name", $username);
     $query->bindParam("pass",$password);
     $query->execute();
     $result= $query->fetch(PDO::FETCH_ASSOC);
     if($result){
-        $_SESSION['id'] = $result['id'];
-        echo "<script>alert('valid data')</script>";
+        $_SESSION['admin_id'] = $result['admin_id'];
+        // echo "<script>alert('valid data')</script>";
         header("location:select.php");
         
 
