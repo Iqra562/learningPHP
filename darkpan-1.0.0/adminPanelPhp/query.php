@@ -104,7 +104,7 @@ if(isset($_POST['insertCategory'])){
     if($product_image_size <= 48000000){
     if($product_image_ext === 'jpg' || $product_image_ext === "png" || $product_image_ext === 'jpeg'|| $product_image_ext === "webp"  || $product_image_ext === "" || $product_image === ""){
         if(move_uploaded_file($product_image_tmp_name,$destinationProduct)){
-            $query= $pdo -> prepare("update products set product_name = :product_name,product_price = :product_price,product_category_id =:product_category ,product_image=:product_image where product_id = :product_id");
+            $query= $pdo -> prepare("update products set product_name = :product_name,product_price = :product_price,product_category_id = :product_category_id,product_category_id =:product_category ,product_image=:product_image where product_id = :product_id");
             $query -> bindParam('product_id', $product_id_input);
             $query -> bindParam('product_name', $product_name);
             $query -> bindParam('product_price', $product_price);
@@ -238,9 +238,10 @@ if (isset($_POST['signIn'])) {
     $query->bindParam(':adminEmail', $email);
 
     if ($query->execute()) {
-        $_SESSION['admin_id'] = $pdo->lastInsertId(); // Set the session variable with the newly inserted admin_id
+        // $_SESSION['admin_id'] = $pdo->max(admin_id);  
+        $_SESSION['admin_id'] = $pdo->lastInsertId(); 
         header("location: adminPanelCategory.php");
-        exit; // Terminate the script to prevent further execution
+   
     } else {
         echo "<script>alert('Failed to create your account')</script>";
     }

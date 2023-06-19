@@ -155,7 +155,6 @@ if(isset($_POST['insertProduct'])){
     $p_image_tmp_name = $_FILES['productImage']['tmp_name'];
     $p_image_ext = pathinfo($p_image, PATHINFO_EXTENSION);
     $destination = "cozastoreimages/".$p_image;
-    $destinationProductCozastore = "images/".$p_image;
     if($p_image_size <= 48000000){
     if($p_image_ext == 'jpg' || $p_image_ext == "png" || $p_image_ext== 'jpeg' || $p_image_ext== 'webp'){
         if(move_uploaded_file($p_image_tmp_name,$destination)){
@@ -189,19 +188,20 @@ if(isset($_POST['insertProduct'])){
 if(isset($_POST['logIn']))
 {
 
-    $username = $_POST['adminName'];
+    // $username = $_POST['adminName'];
     $password = $_POST['adminPassword'];
-    // $email = $_POST['adminEmail'];
-    $query=$pdo->prepare("select * from admins where admin_name= :name && admin_password= :password");
-    $query->bindParam("name", $username);
+    $email = $_POST['adminEmail'];
+    $query=$pdo->prepare("select * from admins where  admin_password= :password && admin_email= :email");
+    // $query->bindParam("name", $username);
     $query->bindParam("password",$password);
+    $query->bindParam("email",$email);
     // $query->bindParam("email",$email);
     $query->execute();
     $result= $query->fetch(PDO::FETCH_ASSOC);
     if($result){
         $_SESSION['admin_id'] = $result['admin_id'];
         // echo "<script>alert('valid data')</script>";
-        header("location:adminPanelCategory.php");
+        header("location:index.php");
         
 
     }
@@ -225,27 +225,45 @@ if(isset($_POST['logout'])){
 }
 ?>
 <!-- logout from page  end -->
-<!-- sign in admin  start -->
+<!-- signup admin  start -->
+
 <?php
-if (isset($_POST['signIn'])) {
+if (isset($_POST['signUp'])) {
     $username = $_POST['adminName'];
     $password = $_POST['adminPassword'];
     $email = $_POST['adminEmail'];
+    $admin_image = $_FILES['adminImage']['name'];
+$admin_image_size = $_FILES['adminImage']['size'];
+$admin_image_tmp_name = $_FILES['adminImage']['tmp_name'];
+$admin_image_ext = pathinfo($admin_image, PATHINFO_EXTENSION);
+$destination = "cozastoreimages/".$admin_image;
 
-    $query = $pdo->prepare("INSERT INTO admins (admin_name, admin_password, admin_email) VALUES (:adminName, :adminPassword, :adminEmail)");
-    $query->bindParam(':adminName', $username);
-    $query->bindParam(':adminPassword', $password);
-    $query->bindParam(':adminEmail', $email);
-
-    if ($query->execute()) {
-        $_SESSION['admin_id'] = $pdo->lastInsertId(); // Set the session variable with the newly inserted admin_id
-        header("location: adminPanelCategory.php");
-        exit; // Terminate the script to prevent further execution
-    } else {
-        echo "<script>alert('Failed to create your account')</script>";
+if($admin_image_size <= 48000000){
+    if($admin_image_ext === 'jpg' || $admin_image_ext === "png" || $admin_image_ext=== 'jpeg' || $admin_image_ext=== 'webp'){
+        if(move_uploaded_file($admin_image_tmp_name,$destination)){
+            $query= $pdo -> prepare("INSERT INTO admins (admin_name, admin_password, admin_email,admin_image) VALUES (:adminName, :adminPassword, :adminEmail,:adminImage)");
+            $query->bindParam('adminName', $username);
+            $query->bindParam('adminPassword', $password);
+            $query->bindParam('adminEmail', $email);
+            $query->bindParam('adminImage', $admin_image);
+            $query -> execute();
+            echo "<script>alert('You account has been created!')
+            location.assign('signin.php')
+            </script>";
+        }
+    
+    }else{
+        echo "<script>alert('not valid extension of your profileimage')
+        </script>";
+        // location.assign('signup.php')
     }
-}
+    
+    }else{
+        echo "file size is greater";
+    };
+    
+};
 ?>
 
 
-<!-- sign in admin  end -->
+<!-- sign up admin  end -->

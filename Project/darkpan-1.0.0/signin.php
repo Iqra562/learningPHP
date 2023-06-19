@@ -57,10 +57,7 @@ include("./adminPanelPhp/query.php");
                             <h3>Sign In</h3>
                         </div>
                         <form method="post">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="Name" name="adminName">
-                            <label for="floatingInput">Name</label>
-                        </div>
+                      
                         <div class="form-floating mb-3">
                             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="adminEmail">
                             <label for="floatingInput">Email address</label>
@@ -76,7 +73,7 @@ include("./adminPanelPhp/query.php");
                             </div>
                             <a href="">Forgot Password</a>
                         </div>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4" name="signIn">Sign In</button>
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4" name="logIn">Sign In</button>
                         <p class="text-center mb-0">Don't have an Account? <a href="signup.php">Sign Up</a></p>
 </form>
                     </div>

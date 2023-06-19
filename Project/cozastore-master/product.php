@@ -579,13 +579,14 @@ include("php/query.php");
 			<div class="row isotope-grid">
 				<?php
 				if(isset($_GET['id'])){
-				 $f_id    = 	$_GET['id'] ;
+				 $category_id    = 	$_GET['id'] ;
 					// echo $f_id;
 					$query =$pdo->prepare( "select * from products  where product_category_id= :id");
-					 $query->bindParam("id",$f_id);
+					// $query =$pdo->query( "select * from products  where product_category_id= 2");
+					 $query->bindParam("id",$category_id);
 					 $query->execute();
 					//  echo "executeeed";
-					 $result = $query->fetch(PDO::FETCH_ASSOC);
+					 $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
 				foreach($result as $row){
 					?>
@@ -626,7 +627,7 @@ include("php/query.php");
 					</div>
 				</div>
 					
-					</div>
+					
 					<?php
 				 }
 				}

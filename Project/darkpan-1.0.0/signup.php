@@ -56,7 +56,7 @@ include("./adminPanelPhp/query.php");
                             </a>
                             <h3>Sign Up</h3>
                         </div>
-                        <form action="" method="post">
+                        <form action="" method="post" enctype="multipart/form-data">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="floatingText" placeholder="jhondoe" name="adminName">
                             <label for="floatingText">Username</label>
@@ -69,6 +69,10 @@ include("./adminPanelPhp/query.php");
                             <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name= "adminPassword">
                             <label for="floatingPassword">Password</label>
                         </div>
+                        <div class="form-group mb-3" style="color:black;" >
+                            <input type="file" class="form-control" id="floatingInput" name="adminImage">
+                 
+                        </div>
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -76,7 +80,7 @@ include("./adminPanelPhp/query.php");
                             </div>
                             <a href="">Forgot Password</a>
                         </div>
-                        <button class="btn btn-primary py-3 w-100 mb-4" name="logIn"> Sign Up</button>
+                        <button class="btn btn-primary py-3 w-100 mb-4" name="signUp"> Sign Up</button>
                         <p class="text-center mb-0">Already have an Account? <a href="signin.php">Sign In</a></p>
                         </form>
                     </div>
