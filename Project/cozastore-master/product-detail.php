@@ -427,7 +427,7 @@ include("php/query.php");
 						</h4>
 
 						<span class="mtext-106 cl2">
-							$58.79
+					<?php echo '$'.$row['product_price']?>
 						</span>
 
 						<p class="stext-102 cl3 p-t-23">
@@ -476,7 +476,10 @@ include("php/query.php");
 
 							<div class="flex-w flex-r-m p-b-10">
 								<form action="shoping-cart.php" method="post">
-									<input type="hidden" name="p_id" value="<?php?>">
+									<input type="hidden" name="p_id" value="<?php echo $row['product_id']?>">
+									<input type="hidden" name="p_name" value="<?php echo $row['product_name']?>">
+									<input type="hidden" name="p_price" value="<?php echo $row['product_price']?>">
+									<input type="hidden" name="p_image" value="<?php echo $row['product_image']?>">
 								<div class="size-204 flex-w flex-m respon6-next">
 									<div class="wrap-num-product flex-w m-r-20 m-tb-10">
 										<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
@@ -490,7 +493,7 @@ include("php/query.php");
 										</div>
 									</div>
 
-									<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+									<button type="submit" name="AddToCart" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
 										Add to cart
 									</button>
 								</div>
@@ -1258,7 +1261,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 											</div>
 										</div>
 
-										<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+										<button type="submit" name="AddToCart" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
 											Add to cart
 										</button>
 									</div>

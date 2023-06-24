@@ -597,11 +597,10 @@ include("php/query.php");
 							<img src="../darkpan-1.0.0/cozastoreimages/	<?php
                 
                 echo $row['product_image']?>" alt="IMG-PRODUCT">
-<<<<<<< HEAD
+
 							<a href="?=id<?php echo $row['product_id'] ?>" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1 ">
-=======
+
 							<a href="product-detail.php?id=<?php echo $row['product_id']?>" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 ">
->>>>>>> 6b977e51cddcb8f3c11b68ff481db1c34034f6d7
 								Quick View
 							</a>
 						</div>
