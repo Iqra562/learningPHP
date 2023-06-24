@@ -364,12 +364,24 @@ include("php/query.php");
 	<?php
 	if(isset($_POST['AddToCart'])){
 		if(isset($_SESSION['cart'])){
+   $productId = array_column($_SESSION['cart'], 'p_id');
+   if(in_array($_POST['p_id'],$productId)){
+
+	echo '<script>alert("product already added into card");
+	location.assign(product-detail.php);
+	</script>';
+
+
+   }else{
+
+
 			$count =count($_SESSION['cart']);
 			$_SESSION['cart'][$count]=array('p_id'=>$_POST['p_id'],'p_name'=>$_POST['p_name'],'p_price'=>$_POST['p_price'],'p_image'=>$_POST['p_image'],'p_qty'=>$_POST['num-product']
 		);
 			echo '<script>alert("product added into card");
 			location.assign(index.php);
 			</script>';
+	}
 		}
 		else{
 			$_SESSION['cart'][0]=array('p_id'=>$_POST['p_id'],'p_name'=>$_POST['p_name'],'p_price'=>$_POST['p_price'],'p_image'=>$_POST['p_image'],'p_qty'=>$_POST['num-product']
@@ -402,7 +414,8 @@ include("php/query.php");
 												<i class="fs-16 zmdi zmdi-minus"></i>
 											</div>
 
-											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value="<?php echo $row['p_qty']?>">
+											<input class="mtext-104 c
+											+l3 txt-center num-product" type="number" name="num-product1" value="<?php echo $row['p_qty']?>">
 
 											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
 												<i class="fs-16 zmdi zmdi-plus"></i>
