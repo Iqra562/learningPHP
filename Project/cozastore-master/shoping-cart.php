@@ -425,7 +425,9 @@ include("php/query.php");
 									<td class="column-5"><?php echo '$'.$row['p_price']*$row['p_qty']?></td>
 							
 									<td>
+										<a href="?remove=<?php echo $row['p_id']?>" class="btn">
                                                 <i class="fa fa-trash "></i>
+												</a>
 											</td>
 								</tr>
 
