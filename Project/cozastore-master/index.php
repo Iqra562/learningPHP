@@ -1,6 +1,8 @@
 <?php
-include("./php/query.php");
-
+include("php/query.php");
+// if(!isset($_SESSION['user_id'])){
+//     header('location:login.php');
+// }
 ?>
 
 <!DOCTYPE html>
@@ -112,6 +114,26 @@ include("./php/query.php");
 							<li>
 								<a href="contact.php">Contact</a>
 							</li>
+							<?php
+							if(isset($_SESSION['user_id'])){
+
+							
+							
+							?>
+							<li>
+								<a href="login.php">LogOut</a>
+							</li>
+							<?php
+							}else{
+								?>
+								<li>
+								<a href="login.php">LogIn</a>
+							</li>
+
+							<?php
+							}
+							?>
+						
 						</ul>
 					</div>	
 

@@ -15,3 +15,37 @@ location.assign('shoping-cart.php');
 }
 }
 ?>
+
+
+
+
+<?php
+if(isset($_POST['logIn']))
+{
+
+    // $username = $_POST['adminName'];
+    $password = $_POST['adminPassword'];
+    $email = $_POST['adminEmail'];
+    $query=$pdo->prepare("select * from user where  admin_password= :password && admin_email= :email");
+    // $query->bindParam("name", $username);
+    $query->bindParam("password",$password);
+    $query->bindParam("email",$email);
+    // $query->bindParam("email",$email);
+    $query->execute();
+    $result= $query->fetch(PDO::FETCH_ASSOC);
+    if($result){
+        $_SESSION['user_id'] = $result['user_id'];
+        // echo "<script>alert('valid data')</script>";
+        header("location:index.php");
+        
+
+    }
+    else{
+  
+        echo "<script>alert('invalid data')</script>";
+
+
+
+    }
+}
+?>
