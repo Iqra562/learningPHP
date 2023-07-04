@@ -1,3 +1,7 @@
+<?php
+include("php/query.php");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,6 +105,26 @@
 							<li>
 								<a href="contact.php">Contact</a>
 							</li>
+							<?php
+							if(isset($_SESSION['user_id'])){
+
+							
+							
+							?>
+							<li>
+								<a href="login.php">LogOut</a>
+							</li>
+							<?php
+							}else{
+								?>
+								<li>
+								<a href="login.php">LogIn</a>
+							</li>
+
+							<?php
+							}
+							?>
+						
 						</ul>
 					</div>	
 
