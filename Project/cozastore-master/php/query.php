@@ -59,8 +59,8 @@ if(isset($_GET['checkout'])){
         $id = $value['p_id'];
         $name = $value['p_name'];
         $price= $value['p_price'];
-        $qty = $value['num-product'];
-        $query = $pdo->prepare('INSERT  into orders(product_id,product_name,product_price,product_qty,user_id,user_name) values(:p_id,:p_name,:p_price,:p_qty,:u_id,u_name)');
+        $qty = $value['p_qty'];
+        $query = $pdo->prepare('INSERT  into orders(product_id,product_name,product_price,product_qty,user_id,user_name) values(:p_id,:p_name,:p_price,:p_qty,:u_id,:u_name)');
         $query->bindParam('u_id',$user_id);
         $query->bindParam('u_name',$user_name);
         $query->bindParam('p_id',$id);
@@ -69,7 +69,9 @@ if(isset($_GET['checkout'])){
         $query->bindParam('p_qty',$qty);
         $query->execute();
 
-        echo "<script>alert('Order Added Successfully')</script>";
+        echo "<script>alert('Order Added Successfully')
+        location.assign(index.php);
+        </script>";
         unset($_SESSION['cart']);
     };
 }

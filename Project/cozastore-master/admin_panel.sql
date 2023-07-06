@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2023 at 01:14 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Jul 06, 2023 at 04:24 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `admins` (
   `admin_password` int(11) NOT NULL,
   `admin_email` varchar(200) NOT NULL,
   `admin_image` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admins`
@@ -62,7 +62,7 @@ CREATE TABLE `category` (
   `category_id` int(11) NOT NULL,
   `category_name` varchar(200) NOT NULL,
   `category_image` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `category`
@@ -91,9 +91,24 @@ CREATE TABLE `orders` (
   `product_price` int(11) NOT NULL,
   `product_qty` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `user_name` varchar(200) NOT NULL,
   `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `status` varchar(200) NOT NULL DEFAULT 'pending'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `product_id`, `product_name`, `product_price`, `product_qty`, `user_id`, `user_name`, `dateTime`, `status`) VALUES
+(1, 2, 'Herschel supply', 46, 1, 1, 'iqra', '2023-07-05 07:59:32', 'pending'),
+(2, 14, 'Pretty Little Thing', 254, 1, 1, 'iqra', '2023-07-05 07:59:32', 'pending'),
+(3, 1, 'Esprit Ruffle Shirt', 469078, 1, 1, 'iqra', '2023-07-05 07:59:32', 'pending'),
+(4, 1, 'Esprit Ruffle Shirt', 469078, 1, 1, 'iqra', '2023-07-05 08:00:36', 'pending'),
+(5, 1, 'Esprit Ruffle Shirt', 469078, 1, 1, 'iqra', '2023-07-06 02:19:37', 'pending'),
+(6, 14, 'Pretty Little Thing', 254, 1, 1, 'iqra', '2023-07-06 02:19:37', 'pending'),
+(7, 12, 'Herschel supply', 763, 1, 1, 'iqra', '2023-07-06 02:22:18', 'pending'),
+(8, 11, 'Herschel supply\r\n', 876, 1, 1, 'iqra', '2023-07-06 02:23:34', 'pending');
 
 -- --------------------------------------------------------
 
@@ -107,7 +122,7 @@ CREATE TABLE `products` (
   `product_price` int(11) NOT NULL,
   `product_category_id` int(11) DEFAULT NULL,
   `product_image` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
@@ -143,7 +158,7 @@ CREATE TABLE `user` (
   `user_name` varchar(2000) NOT NULL,
   `admin_email` varchar(200) NOT NULL,
   `admin_password` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
@@ -208,7 +223,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `products`
