@@ -119,7 +119,9 @@ include("php/query.php");
 							
 							?>
 							<li>
-								<a href="login.php">LogOut</a>
+								<button name="logOut">
+								<a href="#" >LogOut</a>
+								</button>
 							</li>
 							<?php
 							}else{

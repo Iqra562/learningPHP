@@ -77,3 +77,12 @@ if(isset($_GET['checkout'])){
 }
 
 ?>
+<!-- logout from website  -->
+<?php
+if(isset($_POST['logOut'])){
+    session_start();
+    session_unset();
+header('location: login.php');
+
+}
+?>
